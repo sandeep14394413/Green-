@@ -24,7 +24,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a{font-size:12px;letter-spacing:1px;color:rgba(255,255,255,0.55);text-decoration:none;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--gold-light)}
 
-/* HERO - single column full width */
+/* HERO */
 .hero{
   min-height:100vh;
   background:linear-gradient(160deg,var(--dark) 0%,var(--teal) 55%,#0B2030 100%);
@@ -42,14 +42,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .stars{position:absolute;inset:0;pointer-events:none}
 .star{position:absolute;width:2px;height:2px;background:var(--gold-light);border-radius:50%;animation:twinkle var(--d,3s) ease-in-out infinite;opacity:0}
 @keyframes twinkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:var(--op,.6);transform:scale(1.2)}}
-
 .hero-left{padding-right:0;max-width:800px;margin:0 auto}
-.project-label{justify-content:center}
-.project-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.project-label{justify-content:center;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
 .project-label::before{content:'';display:inline-block;width:32px;height:1px;background:var(--gold)}
 .hero-title{font-family:'Playfair Display',serif;font-size:clamp(42px,5vw,72px);font-weight:900;line-height:1.05;color:var(--white);margin-bottom:8px}
 .hero-title em{font-style:italic;color:var(--gold-light);display:block}
-.hero-subtitle{font-size:15px;color:rgba(255,255,255,0.55);margin:20px 0 32px;line-height:1.7;max-width:440px}
+.hero-subtitle{font-size:15px;color:rgba(255,255,255,0.55);margin:20px 0 32px;line-height:1.7;max-width:440px;margin-left:auto;margin-right:auto}
 .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;justify-content:center}
 .tag{font-size:11px;letter-spacing:1px;padding:6px 14px;border-radius:2px;border:1px solid rgba(201,146,42,0.4);color:var(--gold-light);background:rgba(201,146,42,0.08);text-transform:uppercase}
 .tools-row{display:flex;gap:10px;margin-bottom:32px;align-items:center;flex-wrap:wrap;justify-content:center}
@@ -62,73 +60,79 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .metric-val{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--gold-light)}
 .metric-label{font-size:11px;letter-spacing:1px;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-top:4px}
 
-/* PHONE MOCKUP */
+/* ── VIDEO BANNER ── */
+.video-banner-wrap{
+  background:#000;
+  width:100%;
+  position:relative;
+  overflow:hidden;
+}
+.video-banner-label{
+  font-family:'DM Mono',monospace;
+  font-size:10px;
+  letter-spacing:3px;
+  color:var(--gold);
+  text-transform:uppercase;
+  text-align:center;
+  padding:18px 0 14px;
+  background:#060F16;
+  border-bottom:1px solid rgba(201,146,42,0.2);
+}
+/* The actual <video> element */
+#heroVid{
+  width:100%;
+  display:block;
+  max-height:80vh;
+  object-fit:contain;
+  background:#000;
+}
+/* Fallback shown only when video fails / file is missing */
+.video-fallback{
+  display:none; /* hidden by default; JS shows it on error */
+  width:100%;
+  min-height:340px;
+  background:linear-gradient(160deg,#060F16 0%,#0d2535 60%,#060F16 100%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  padding:60px 24px;
+  text-align:center;
+}
+.video-fallback-icon{font-size:48px;opacity:0.5}
+.video-fallback-title{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  color:var(--gold-light);
+  font-style:italic;
+}
+.video-fallback-body{
+  font-family:'DM Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  color:rgba(255,255,255,0.35);
+  text-transform:uppercase;
+  max-width:380px;
+  line-height:1.8;
+}
+.video-banner-fade{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:60px;
+  background:linear-gradient(transparent,rgba(0,0,0,0.6));
+  pointer-events:none;
+}
+
+/* PHONE MOCKUP (kept for future use, hidden on mobile) */
 .hero-right{display:flex;justify-content:center;align-items:center;position:relative}
 .phone-wrap{position:relative;animation:float 4s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-.phone-frame{
-  width:260px;
-  background:#0A1620;
-  border-radius:40px;
-  border:3px solid rgba(201,146,42,0.6);
-  box-shadow:0 0 0 6px rgba(201,146,42,0.1),0 40px 80px rgba(0,0,0,0.7);
-  overflow:hidden;
-  position:relative;
-}
+.phone-frame{width:260px;background:#0A1620;border-radius:40px;border:3px solid rgba(201,146,42,0.6);box-shadow:0 0 0 6px rgba(201,146,42,0.1),0 40px 80px rgba(0,0,0,0.7);overflow:hidden;position:relative}
 .phone-notch{width:90px;height:24px;background:#0A1620;border-radius:0 0 16px 16px;margin:0 auto;position:relative;z-index:2}
-.phone-screen{
-  overflow:hidden;
-  height:500px;
-  position:relative;
-}
-.phone-screen .store-scroll{
-  width:100%;
-  display:block;
-  will-change:transform;
-}
+.phone-screen{overflow:hidden;height:500px;position:relative}
+.phone-screen .store-scroll{width:100%;display:block;will-change:transform}
 .phone-glow{position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(201,146,42,0.25) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-
-/* Hero right layout */
-.hero-right{
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  gap:20px;
-  position:relative;
-}
-
-/* Mini video banner - larger and prominent */
-.mini-banner-wrap{
-  display:flex;flex-direction:column;gap:8px;
-  margin-top:20px;
-  align-self:flex-start;
-}
-.mini-banner-label{
-  font-family:'DM Mono',monospace;
-  font-size:9px;letter-spacing:2px;
-  color:var(--gold);text-transform:uppercase;
-}
-.mini-banner{
-  width:210px;
-  border-radius:12px;overflow:hidden;
-  border:2px solid rgba(201,146,42,0.6);
-  box-shadow:0 12px 40px rgba(0,0,0,0.6),0 0 0 4px rgba(201,146,42,0.1);
-  position:relative;
-  background:#000;
-}
-.mini-banner video{
-  width:100%;display:block;
-  min-height:120px;
-}
-.mini-banner-overlay{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:8px 10px;
-  background:linear-gradient(transparent,rgba(0,0,0,0.8));
-  font-family:'DM Mono',monospace;
-  font-size:9px;letter-spacing:1px;
-  color:rgba(255,255,255,0.7);
-  text-transform:uppercase;
-}
 
 /* SECTIONS */
 section{padding:88px 48px}
@@ -149,60 +153,33 @@ section{padding:88px 48px}
 .visual-hero-strip .section-eyebrow{color:var(--gold)}
 .visual-hero-strip .section-title{color:white}
 .visual-hero-strip .section-body{color:rgba(255,255,255,0.45)}
-
-/* Full store image */
-.vis-main{
-  margin-top:48px;
-  border-radius:12px;overflow:hidden;
-  border:1px solid rgba(201,146,42,0.25);
-  box-shadow:0 32px 80px rgba(0,0,0,0.5);
-}
+.vis-main{margin-top:48px;border-radius:12px;overflow:hidden;border:1px solid rgba(201,146,42,0.25);box-shadow:0 32px 80px rgba(0,0,0,0.5)}
 .vis-main img{width:100%;display:block}
-.vis-main-label{
-  padding:18px 28px;background:rgba(6,15,22,0.95);
-  display:flex;align-items:center;justify-content:space-between;
-}
+.vis-main-label{padding:18px 28px;background:rgba(6,15,22,0.95);display:flex;align-items:center;justify-content:space-between}
 .vis-main-label span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:rgba(255,255,255,0.35);text-transform:uppercase}
 .vis-main-label strong{font-size:13px;color:var(--gold-light)}
 
-/* Two preview cards */
-.vis-cards{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.vis-card{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(201,146,42,0.2);
-  border-radius:10px;overflow:hidden;
-  transition:border-color .3s;
-}
-.vis-card:hover{border-color:rgba(201,146,42,0.5)}
-.vis-card-media{
+/* Image placeholders — shown when image files are missing */
+.img-placeholder{
   width:100%;
-  height:380px;
-  overflow:hidden;
-  position:relative;
-  background:#000;
+  min-height:320px;
+  background:linear-gradient(160deg,#0d1f2a 0%,#1a3a4a 100%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:40px 24px;
+  text-align:center;
 }
-/* Video card - hero animation */
-.vis-card-media video{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:top;
-  display:block;
+.img-placeholder-icon{font-size:36px;opacity:0.4}
+.img-placeholder-text{
+  font-family:'DM Mono',monospace;
+  font-size:10px;
+  letter-spacing:2px;
+  color:rgba(255,255,255,0.25);
+  text-transform:uppercase;
 }
-/* Image card - bottom of store */
-.vis-card-media img{
-  width:100%;
-  display:block;
-  position:absolute;
-  bottom:0;
-  left:0;
-}
-.vis-card-footer{
-  padding:16px 20px;
-  background:#0A0F14;
-  border-top:1px solid rgba(201,146,42,0.1);
-}
-.vis-card-footer strong{display:block;font-size:13px;color:var(--gold-light);margin-bottom:4px}
-.vis-card-footer span{font-size:12px;color:rgba(255,255,255,0.35)}
 
 /* WIREFRAME */
 .wireframe-section{background:white}
@@ -282,7 +259,6 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
   section{padding:56px 20px}
   .overview{padding:40px 20px}.overview-grid{grid-template-columns:1fr 1fr}
   .visual-hero-strip{padding:56px 20px}
-  .vis-cards{grid-template-columns:1fr}
   .wireframe-layout{grid-template-columns:1fr}
   .context-layout{grid-template-columns:1fr;gap:40px}
   .decisions-grid{grid-template-columns:1fr}
@@ -331,15 +307,22 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
       <div><div class="metric-val">↑</div><div class="metric-label">High Performance</div></div>
     </div>
   </div>
-
-  <!-- hero-right removed, video is now full section below -->
 </section>
 
-<!-- FULL WIDTH VIDEO BANNER -->
-<div style="background:#000;width:100%;position:relative;overflow:hidden">
-  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;text-align:center;padding:18px 0 14px;background:#060F16;border-bottom:1px solid rgba(201,146,42,0.2)">
+<!-- ═══════════════════════════════════════════════════════════
+     FULL WIDTH VIDEO BANNER
+     FIX: Added onerror handler + visible fallback UI.
+     The <video> tag itself is correct (autoplay/muted/loop/playsinline).
+     The ONLY reason it wasn't playing was the missing MP4 file in the repo.
+     Upload  assets/video/hero-banner.mp4  and this will play automatically.
+     ═══════════════════════════════════════════════════════════ -->
+<div class="video-banner-wrap" id="videoBannerSection">
+
+  <div class="video-banner-label">
     ✦ Animated Hero Banner · After Effects · Fortune &amp; Tata Consumer Products
   </div>
+
+  <!-- VIDEO — shown when file exists -->
   <video
     id="heroVid"
     autoplay
@@ -347,11 +330,30 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     loop
     playsinline
     preload="auto"
-    style="width:100%;display:block;max-height:80vh;object-fit:contain;background:#000"
   >
+    <!--
+      ⚠️  IMPORTANT: This file is missing from your GitHub repo.
+          Add it with:
+            git add assets/video/hero-banner.mp4
+            git commit -m "Add hero banner video"
+            git push
+          If the file is >100MB, use Git LFS first:
+            git lfs install && git lfs track "*.mp4"
+    -->
     <source src="assets/video/hero-banner.mp4" type="video/mp4">
   </video>
-  <div style="position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(transparent,rgba(0,0,0,0.6));pointer-events:none"></div>
+
+  <!-- FALLBACK — hidden by default, shown via JS if video fails to load -->
+  <div class="video-fallback" id="videoFallback" style="display:none">
+    <div class="video-fallback-icon">▶</div>
+    <div class="video-fallback-title">Animated Hero Banner</div>
+    <div class="video-fallback-body">
+      After Effects · Fortune &amp; Tata Consumer Products<br><br>
+      Upload <code style="background:rgba(255,255,255,0.08);padding:2px 8px;border-radius:3px;font-size:10px">assets/video/hero-banner.mp4</code><br>to your GitHub repo to display the animation here.
+    </div>
+  </div>
+
+  <div class="video-banner-fade"></div>
 </div>
 
 <!-- OVERVIEW -->
@@ -382,15 +384,29 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
   <h2 class="section-title reveal">Complete Store — Flavors of Ramadan</h2>
   <p class="section-body reveal">Full mobile store as delivered on Flipkart — hero animation, product sections, brand spotlight, and closing CTA.</p>
 
-  <!-- Full store image -->
+  <!--
+    ⚠️  store-full.jpg is also missing from your repo.
+        Add it with:  git add assets/images/store-full.jpg
+        The placeholder below disappears automatically once the image loads.
+  -->
   <div class="vis-main reveal">
-    <img src="assets/images/store-full.jpg" alt="Full Store">
+    <div class="img-placeholder" id="storeImgPlaceholder">
+      <div class="img-placeholder-icon">🖼️</div>
+      <div class="img-placeholder-text">Complete Store Design · Flavors of Ramadan<br><br>Upload assets/images/store-full.jpg to display</div>
+    </div>
+    <img
+      src="assets/images/store-full.jpg"
+      alt="Complete Store Design — Flavors of Ramadan"
+      id="storeImg"
+      style="display:none"
+      onload="this.style.display='block';document.getElementById('storeImgPlaceholder').style.display='none'"
+      onerror="this.style.display='none'"
+    >
     <div class="vis-main-label">
       <strong>Complete Store Design · Flavors of Ramadan</strong>
       <span>Flipkart Mobile · Sponsored Store</span>
     </div>
   </div>
-
 </div>
 
 <!-- COLOR PALETTE -->
@@ -400,8 +416,6 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
   <p class="section-body reveal" style="color:rgba(255,255,255,0.45)">Every color was chosen for a reason — from the deep navy of midnight skies to the gold of lantern light.</p>
 
   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:56px">
-
-    <!-- Deep Teal -->
     <div class="reveal" style="border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
       <div style="height:160px;background:#1A3A4A;position:relative;display:flex;align-items:flex-end;padding:16px">
         <div style="width:32px;height:32px;border-radius:50%;border:3px solid rgba(255,255,255,0.2);background:#1A3A4A"></div>
@@ -412,8 +426,6 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
         <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5">Primary background · Store base · Hero BG</div>
       </div>
     </div>
-
-    <!-- Gold -->
     <div class="reveal" style="border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
       <div style="height:160px;background:#C9922A;position:relative;display:flex;align-items:flex-end;padding:16px">
         <div style="width:32px;height:32px;border-radius:50%;border:3px solid rgba(255,255,255,0.3);background:#C9922A"></div>
@@ -424,8 +436,6 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
         <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5">Borders · Dividers · Section accents</div>
       </div>
     </div>
-
-    <!-- Gold Light -->
     <div class="reveal" style="border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
       <div style="height:160px;background:#E8B84B;position:relative;display:flex;align-items:flex-end;padding:16px">
         <div style="width:32px;height:32px;border-radius:50%;border:3px solid rgba(255,255,255,0.3);background:#E8B84B"></div>
@@ -436,8 +446,6 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
         <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5">Headlines · Logo text · Highlights</div>
       </div>
     </div>
-
-    <!-- Cream -->
     <div class="reveal" style="border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
       <div style="height:160px;background:#FAF7F0;position:relative;display:flex;align-items:flex-end;padding:16px">
         <div style="width:32px;height:32px;border-radius:50%;border:3px solid rgba(0,0,0,0.1);background:#FAF7F0"></div>
@@ -448,8 +456,6 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
         <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5">Section backgrounds · Category cards</div>
       </div>
     </div>
-
-    <!-- Dark -->
     <div class="reveal" style="border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4)">
       <div style="height:160px;background:#0E1E26;border:1px solid rgba(255,255,255,0.08);position:relative;display:flex;align-items:flex-end;padding:16px">
         <div style="width:32px;height:32px;border-radius:50%;border:3px solid rgba(255,255,255,0.15);background:#0E1E26"></div>
@@ -462,7 +468,6 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
     </div>
   </div>
 
-  <!-- Color usage in elements -->
   <div style="margin-top:40px;padding:32px;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid rgba(201,146,42,0.15)">
     <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:20px">Color usage in store elements</div>
     <div style="display:flex;flex-wrap:wrap;gap:12px">
@@ -496,10 +501,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
   <div class="section-eyebrow">03 — Typography</div>
   <h2 class="section-title reveal">Typefaces that carry the visual tone</h2>
   <p class="section-body reveal">Two typefaces — one for festive occasion, one for clarity and structure.</p>
-
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:56px">
-
-    <!-- Font 1: Khodijah -->
     <div class="reveal" style="padding:40px;background:var(--dark);border-radius:10px;border:1px solid rgba(201,146,42,0.2)">
       <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:20px">Display / Hero Font</div>
       <div style="font-size:64px;line-height:1.05;margin-bottom:6px;background:linear-gradient(135deg,#E8B84B,#C9922A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Georgia',serif;font-style:italic;letter-spacing:2px">Ramadan</div>
@@ -512,8 +514,6 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
         <div style="font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7">Used in: Hero banner title · "Flavors of Ramadan" main heading · Festive display moments</div>
       </div>
     </div>
-
-    <!-- Font 2: Poppins -->
     <div class="reveal" style="padding:40px;background:var(--cream);border-radius:10px;border:1px solid rgba(0,0,0,0.06)">
       <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:20px">Body / UI Font</div>
       <div style="font-family:'Poppins',sans-serif;font-size:30px;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:10px">Stock up for<br>the perfect Iftar</div>
@@ -526,7 +526,6 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
         <div style="font-size:12px;color:var(--text-muted);line-height:1.7">Used in: Section headings · Product names · Category labels · Body copy · CTA buttons</div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -538,7 +537,24 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
   <div class="wireframe-layout">
     <div class="wireframe-visual reveal">
       <div class="wireframe-badge">Wireframe / Content Plan</div>
-      <img src="assets/images/wireframe.png" alt="Store Wireframe" class="wireframe-img">
+      <!--
+        ⚠️  wireframe.png is also missing from your repo.
+            Add it with:  git add assets/images/wireframe.png
+            The placeholder below shows automatically when the image is absent.
+      -->
+      <div class="img-placeholder" id="wireImgPlaceholder" style="border-radius:6px;border:1px solid #E8E0D0;min-height:400px">
+        <div class="img-placeholder-icon" style="color:rgba(0,0,0,0.2)">📐</div>
+        <div class="img-placeholder-text" style="color:rgba(0,0,0,0.25)">Store Wireframe<br><br>Upload assets/images/wireframe.png to display</div>
+      </div>
+      <img
+        src="assets/images/wireframe.png"
+        alt="Store Wireframe"
+        class="wireframe-img"
+        id="wireImg"
+        style="display:none"
+        onload="this.style.display='block';document.getElementById('wireImgPlaceholder').style.display='none'"
+        onerror="this.style.display='none'"
+      >
     </div>
     <div>
       <div class="wireframe-sections">
@@ -724,40 +740,61 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color
 </footer>
 
 <script>
-// Stars
-const starsEl=document.getElementById('stars');
-for(let i=0;i<55;i++){
-  const s=document.createElement('div');s.className='star';
-  s.style.left=Math.random()*100+'%';
-  s.style.top=Math.random()*100+'%';
-  s.style.setProperty('--d',(2+Math.random()*4).toFixed(1)+'s');
-  s.style.setProperty('--op',(0.3+Math.random()*0.5).toFixed(2));
-  s.style.animationDelay=(Math.random()*4).toFixed(1)+'s';
+// ── Stars ──
+const starsEl = document.getElementById('stars');
+for (let i = 0; i < 55; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.top  = Math.random() * 100 + '%';
+  s.style.setProperty('--d',  (2 + Math.random() * 4).toFixed(1) + 's');
+  s.style.setProperty('--op', (0.3 + Math.random() * 0.5).toFixed(2));
+  s.style.animationDelay = (Math.random() * 4).toFixed(1) + 's';
   starsEl.appendChild(s);
 }
 
-// Scroll reveal
-const obs=new IntersectionObserver(es=>{
-  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
-},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// ── Scroll reveal ──
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Seamless phone scroll — JS-driven, no CSS animation break
-// Chrome autoplay fix — force play on interaction if needed
-(function(){
-  const vid = document.getElementById('heroVid');
-  if(!vid) return;
-  // Try to play immediately
-  const p = vid.play();
-  if(p !== undefined){
-    p.catch(function(){
-      // Autoplay blocked — play on first user interaction
-      document.addEventListener('click', function(){
-        vid.play();
-      }, {once: true});
-      document.addEventListener('touchstart', function(){
-        vid.play();
-      }, {once: true});
+// ── Video: autoplay + fallback on error ──
+(function () {
+  const vid      = document.getElementById('heroVid');
+  const fallback = document.getElementById('videoFallback');
+  if (!vid) return;
+
+  // Show fallback when the source 404s or can't be decoded
+  function showFallback() {
+    vid.style.display      = 'none';
+    fallback.style.display = 'flex';
+  }
+
+  // onerror on the <source> element fires for network errors but not always;
+  // listening to the video element's error event is more reliable.
+  vid.addEventListener('error', showFallback);
+
+  // Also catch the case where the video loads 0 bytes (empty file / LFS pointer)
+  vid.addEventListener('loadedmetadata', function () {
+    if (vid.duration === 0 || isNaN(vid.duration)) showFallback();
+  });
+
+  // Attempt to play; if browser blocks autoplay, retry on first user gesture
+  const promise = vid.play();
+  if (promise !== undefined) {
+    promise.catch(function (err) {
+      // NotAllowedError = autoplay blocked (not a missing file)
+      if (err.name === 'NotAllowedError') {
+        const resume = function () { vid.play(); };
+        document.addEventListener('click',      resume, { once: true });
+        document.addEventListener('touchstart', resume, { once: true });
+      } else {
+        // AbortError or NotSupportedError usually means missing / broken file
+        showFallback();
+      }
     });
   }
 })();
